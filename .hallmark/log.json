@@ -1,6 +1,24 @@
 [
   {
     "date": "2026-08-20",
+    "macrostructure": "Narrative Workflow",
+    "theme": "custom",
+    "theme_axes": "dark-light alternating / geometric-sans / cool-blue",
+    "vibe": "controlled accounting systems map",
+    "enrichment": "pipeline diagram",
+    "brief": "CRM to QuickBooks controlled integration presentation"
+  },
+  {
+    "date": "2026-08-20",
+    "macrostructure": "Map / Diagram",
+    "theme": "custom",
+    "theme_axes": "light / geometric-sans / cool-blue",
+    "vibe": "inventory operations assessment",
+    "enrichment": "spatial inventory map",
+    "brief": "Existing inventory application assessment presentation"
+  },
+  {
+    "date": "2026-08-20",
     "macrostructure": "Workbench",
     "theme": "custom",
     "theme_axes": "light / geometric-sans / cool-blue",

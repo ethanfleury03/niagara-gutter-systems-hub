@@ -9,5 +9,9 @@ mobile.png
 mobile-playwright.png
 production-375.png
 production-1440.png
+live-375.png
+live-1440.png
+qa-*.png
+live-*.png
 AGENTS.md
 CLAUDE.md

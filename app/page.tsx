@@ -1,47 +1,49 @@
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+import Link from "next/link";
+import SiteNav from "@/components/SiteNav";
 
 const workstreams = [
   {
     number: "01",
+    href: "/inventory/",
     title: "Inventory application",
-    status: "Review first",
+    status: "Plan ready",
     summary: "Understand the current application, physical workflow, and ownership before recommending changes.",
     next: "Existing-system assessment",
+    action: "View approach",
   },
   {
     number: "02",
+    href: "/pricing/",
     title: "Pricing calculator",
     status: "Build next",
     summary: "Turn Brad’s pricing knowledge into a controlled, explainable model for the sales team.",
     next: "Interactive concept",
+    action: "Preview plan",
   },
   {
     number: "03",
+    href: "/integration/",
     title: "CRM → QuickBooks",
-    status: "Map next",
+    status: "Plan ready",
     summary: "Move approved customer and job data once, preserve accounting controls, and route exceptions to people.",
-    next: "Integration flow",
+    next: "Integration pipeline",
+    action: "View pipeline",
   },
 ];
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export default function Home() {
   return (
     <main className="site-shell" id="top">
-      <nav className="nav-pill" aria-label="Primary navigation">
-        <a className="nav-wordmark" href="#top">NG Systems</a>
-        <div className="nav-links">
-          <a href="#workstreams">Workstreams</a>
-          <a href="#operating-layer">AI layer</a>
-        </div>
-        <span className="nav-state">Concept</span>
-      </nav>
+      <SiteNav />
 
       <header className="hero container">
         <div className="hero-copy reveal" style={{ "--i": 0 } as React.CSSProperties}>
           <p className="context-line">Prepared for Niagara Gutter by WNY Automation</p>
           <h1>Three systems.<br />One operating layer.</h1>
           <p className="hero-lede">
-            A private presentation shell for exploring inventory, pricing, and accounting workflows before production decisions are made.
+            A private presentation for exploring inventory, pricing, and accounting workflows before production decisions are made.
           </p>
         </div>
 
@@ -55,7 +57,7 @@ export default function Home() {
           />
           <figcaption>
             <span>Presentation state</span>
-            <strong>Foundation ready</strong>
+            <strong>Project plans ready</strong>
           </figcaption>
         </figure>
       </header>
@@ -63,7 +65,7 @@ export default function Home() {
       <section className="workstreams container" id="workstreams" aria-labelledby="workstreams-title">
         <div className="section-intro">
           <h2 id="workstreams-title">Workstreams</h2>
-          <p>Each area will expand only after the current process, owners, and success criteria are understood.</p>
+          <p>Each area begins with the current process, responsible people, controls, and definition of success.</p>
         </div>
 
         <div className="workstream-list">
@@ -78,12 +80,10 @@ export default function Home() {
                 <p>{item.summary}</p>
               </div>
               <div className="workstream-next">
-                <span>Next artifact</span>
+                <span>Current artifact</span>
                 <strong>{item.next}</strong>
               </div>
-              <button className="workstream-action" type="button" disabled aria-disabled="true">
-                Coming next
-              </button>
+              <Link className="workstream-link" href={item.href}>{item.action}</Link>
             </article>
           ))}
         </div>
