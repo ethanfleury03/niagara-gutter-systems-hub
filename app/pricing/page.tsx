@@ -9,6 +9,8 @@ export const metadata: Metadata = {
 };
 
 export default function PricingPage() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
   return (
     <main className="site-shell workstream-page pricing-placeholder-page">
       <SiteNav />
@@ -34,6 +36,29 @@ export default function PricingPage() {
           "The real pricing rules, minimums, exceptions, and approval limits still need to be documented.",
         ]}
       />
+
+      <section className="pricing-roadmap-section container" aria-labelledby="pricing-roadmap-title">
+        <div className="section-intro section-intro--compact">
+          <h2 id="pricing-roadmap-title">Our roadmap</h2>
+          <p>Capture Brad’s method, build deterministic rules, and prove the calculator against real quotes before rollout.</p>
+        </div>
+        <figure className="roadmap-visual">
+          <div className="roadmap-image-scroll">
+            <img
+              src={`${basePath}/pricing-calculator-roadmap.webp`}
+              alt="Six-step pricing calculator roadmap: Understand, Model, Build, Validate, Connect, and Prove"
+              width="1672"
+              height="941"
+              loading="lazy"
+            />
+          </div>
+          <figcaption>
+            <span className="roadmap-caption-summary">Understand → Model → Build → Validate → Connect → Prove</span>
+            <span className="roadmap-mobile-hint">Swipe through all six stages →</span>
+            <strong>Understand the logic · Build the rules · Prove the price</strong>
+          </figcaption>
+        </figure>
+      </section>
 
       <section className="pricing-preview container">
         <div className="pricing-canvas" aria-label="Pricing calculator feature preview">
