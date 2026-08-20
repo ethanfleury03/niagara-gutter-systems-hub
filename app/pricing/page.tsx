@@ -65,10 +65,10 @@ export default function PricingPage() {
         <div className="container">
           <div className="possible-calculator-heading">
             <div>
-              <p className="context-line">Next build</p>
+              <p className="context-line">Working prototype</p>
               <h2 id="possible-calculator-title">Possible Calculator</h2>
             </div>
-            <p>Interface design prototype · Calculation logic coming next · Synthetic values only</p>
+            <p>Interactive synthetic prototype · Edit pricing values and test sample jobs below</p>
           </div>
           <PricingCalculatorConcept />
           <div className="page-next page-next--split">
