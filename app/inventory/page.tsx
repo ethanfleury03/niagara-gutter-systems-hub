@@ -7,38 +7,7 @@ export const metadata: Metadata = {
   description: "Assessment and implementation approach for Niagara Gutter’s existing inventory application.",
 };
 
-const phases = [
-  {
-    number: "01",
-    title: "Inspect the application",
-    detail: "Review the live app, code ownership, hosting, database, users, existing features, bugs, and current backlog.",
-    output: "Technical assessment",
-  },
-  {
-    number: "02",
-    title: "Observe the physical flow",
-    detail: "Follow material from purchase and receiving through warehouse storage, truck loading, job use, return, and scrap.",
-    output: "Current-state workflow",
-  },
-  {
-    number: "03",
-    title: "Define the source of truth",
-    detail: "Agree on locations, items, units, transaction types, permissions, and what must connect to jobs or accounting.",
-    output: "Approved data model",
-  },
-  {
-    number: "04",
-    title: "Stabilize the highest-value path",
-    detail: "Fix the smallest complete workflow first—typically receive, locate, issue, return, and audit material.",
-    output: "Controlled pilot",
-  },
-  {
-    number: "05",
-    title: "Roll out with evidence",
-    detail: "Train a small user group, compare app records with physical counts, resolve friction, then expand deliberately.",
-    output: "Production decision",
-  },
-];
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const inspectionAreas = [
   ["Application", "Code · hosting · database · authentication · backups · environments"],
@@ -66,6 +35,25 @@ export default function InventoryPage() {
           <p>The responsible first move is assessment—not presenting a competing rebuild before seeing the current system.</p>
         </aside>
       </header>
+
+      <section className="roadmap-visual-section container" aria-label="Inventory application roadmap">
+        <figure className="roadmap-visual">
+          <div className="roadmap-image-scroll">
+            <img
+              src={`${basePath}/inventory-application-roadmap.webp`}
+              alt="Six-step inventory application roadmap: Understand, Map, Decide, Design, Connect, and Prove"
+              width="1672"
+              height="941"
+              fetchPriority="high"
+            />
+          </div>
+          <figcaption>
+            <span className="roadmap-caption-summary">Six steps from assessment to rollout</span>
+            <span className="roadmap-mobile-hint">Swipe to explore all six steps →</span>
+            <strong>Understand before selecting tools</strong>
+          </figcaption>
+        </figure>
+      </section>
 
       <section className="map-section container" aria-labelledby="inventory-map-title">
         <div className="section-intro section-intro--compact">
@@ -99,36 +87,6 @@ export default function InventoryPage() {
               </div>
             ))}
           </dl>
-        </div>
-      </section>
-
-      <section className="phase-section container" aria-labelledby="inventory-phases-title">
-        <div className="section-intro section-intro--compact">
-          <h2 id="inventory-phases-title">How we attack it</h2>
-          <p>Each phase produces a decision artifact before more software is added.</p>
-        </div>
-        <ol className="phase-track">
-          {phases.map((phase) => (
-            <li key={phase.number}>
-              <span className="phase-number">{phase.number}</span>
-              <div><h3>{phase.title}</h3><p>{phase.detail}</p></div>
-              <strong>{phase.output}</strong>
-            </li>
-          ))}
-        </ol>
-      </section>
-
-      <section className="decision-section">
-        <div className="container decision-grid">
-          <div>
-            <p className="context-line context-line--light">Decision gate</p>
-            <h2>Three possible outcomes.<br />No predetermined answer.</h2>
-          </div>
-          <div className="decision-options">
-            <article><strong>Finish</strong><p>The foundation works; complete missing workflows and harden operations.</p></article>
-            <article><strong>Refactor</strong><p>The product is useful, but selected architecture or UX needs targeted repair.</p></article>
-            <article><strong>Rebuild</strong><p>Only if ownership, reliability, security, or maintainability makes recovery unreasonable.</p></article>
-          </div>
         </div>
       </section>
 
