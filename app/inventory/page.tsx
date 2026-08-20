@@ -49,28 +49,34 @@ export default function InventoryPage() {
           </div>
           <figcaption>
             <span className="roadmap-caption-summary">Six steps from assessment to rollout</span>
-            <span className="roadmap-mobile-hint">Swipe to explore all six steps →</span>
+            <span className="roadmap-mobile-hint">Swipe through all six steps →</span>
             <strong>Understand before selecting tools</strong>
           </figcaption>
         </figure>
       </section>
 
-      <section className="map-section container" aria-labelledby="inventory-map-title">
+      <section className="map-section container" aria-labelledby="inventory-solution-title">
         <div className="section-intro section-intro--compact">
-          <h2 id="inventory-map-title">The operating map</h2>
-          <p>The application should reflect where material physically moves, not force employees into an abstract software model.</p>
+          <h2 id="inventory-solution-title">Possible solution</h2>
+          <p>A deterministic flow records what entered, where it moved, what was used, and what must happen next.</p>
         </div>
 
-        <div className="inventory-map" aria-label="Conceptual inventory operating map">
-          <div className="map-node map-node--top"><span>Purchasing</span><strong>Orders and cost</strong></div>
-          <div className="map-node map-node--left"><span>Warehouse</span><strong>Receive and locate</strong></div>
-          <div className="map-core"><small>Existing application</small><strong>Inventory ledger</strong><span>One history of every material movement</span></div>
-          <div className="map-node map-node--right"><span>Trucks</span><strong>Load and return</strong></div>
-          <div className="map-node map-node--bottom"><span>Jobs</span><strong>Reserve, use, and reconcile</strong></div>
-          <div className="map-connector map-connector--vertical" aria-hidden="true" />
-          <div className="map-connector map-connector--horizontal" aria-hidden="true" />
-        </div>
-        <p className="diagram-note">Conceptual structure only · Actual locations, items, and workflows must be confirmed onsite.</p>
+        <figure className="roadmap-visual operating-flow-visual">
+          <div className="roadmap-image-scroll">
+            <img
+              src={`${basePath}/inventory-operational-flow.webp`}
+              alt="Operational inventory flow from job demand and purchasing through receiving, storage, truck loading, job use, reconciliation, and outputs"
+              width="1672"
+              height="941"
+              loading="lazy"
+            />
+          </div>
+          <figcaption>
+            <span className="roadmap-caption-summary">Inputs → material movement → operational outputs</span>
+            <span className="roadmap-mobile-hint">Swipe through the full flow →</span>
+            <strong>Conceptual only · Final flow confirmed during discovery</strong>
+          </figcaption>
+        </figure>
       </section>
 
       <section className="inspection-section">
