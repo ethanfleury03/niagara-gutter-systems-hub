@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/SiteNav";
+import ProblemSection from "@/components/ProblemSection";
 
 export const metadata: Metadata = {
   title: "Pricing Calculator Plan | Niagara Gutter Systems Hub",
@@ -23,6 +24,16 @@ export default function PricingPage() {
           <p>The interface will demonstrate rule capture, calculation explanation, margin visibility, and controlled overrides.</p>
         </aside>
       </header>
+
+      <ProblemSection
+        id="pricing-problem"
+        summary="Brad’s pricing knowledge needs to become a repeatable system that salespeople can use without guessing or depending on Brad for every decision."
+        items={[
+          "Important pricing variables and judgment may currently live primarily in Brad’s experience.",
+          "Different interpretations can create inconsistent quotes or margin risk.",
+          "The real pricing rules, minimums, exceptions, and approval limits still need to be documented.",
+        ]}
+      />
 
       <section className="pricing-preview container">
         <div className="pricing-canvas" aria-label="Pricing calculator feature preview">

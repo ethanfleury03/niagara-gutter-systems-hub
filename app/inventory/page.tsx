@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/SiteNav";
+import ProblemSection from "@/components/ProblemSection";
 
 export const metadata: Metadata = {
   title: "Inventory Application Plan | Niagara Gutter Systems Hub",
@@ -35,6 +36,16 @@ export default function InventoryPage() {
           <p>The responsible first move is assessment—not presenting a competing rebuild before seeing the current system.</p>
         </aside>
       </header>
+
+      <ProblemSection
+        id="inventory-problem"
+        summary="Niagara Gutter has an unfinished inventory application, but its value cannot be judged until the software and the real material workflow are inspected together."
+        items={[
+          "The application’s current features, ownership, and reliability are not yet known.",
+          "It is unclear how consistently material movement between the warehouse, trucks, and jobs is recorded today.",
+          "Building more software before assessment could duplicate useful work or solve the wrong problem.",
+        ]}
+      />
 
       <section className="roadmap-visual-section container" aria-label="Inventory application roadmap">
         <figure className="roadmap-visual">

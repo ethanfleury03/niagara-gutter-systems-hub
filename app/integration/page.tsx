@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/SiteNav";
+import ProblemSection from "@/components/ProblemSection";
 
 export const metadata: Metadata = {
   title: "CRM to QuickBooks Plan | Niagara Gutter Systems Hub",
@@ -58,6 +59,16 @@ export default function IntegrationPage() {
           <p>This is not just deduplication. It is ownership, timing, matching, approvals, recovery, and reconciliation.</p>
         </aside>
       </header>
+
+      <ProblemSection
+        id="integration-problem"
+        summary="Customer and job information may be entered more than once as work moves from Leap or JobProgress into QuickBooks Online."
+        items={[
+          "Repeated entry can create inconsistent or duplicate customer, job, and accounting records.",
+          "The owner and timing of each customer, estimate, deposit, invoice, and payment record are not yet defined.",
+          "Ambiguous matches and partial failures need a safe human-review and recovery process.",
+        ]}
+      />
 
       <section className="pipeline-section" aria-labelledby="pipeline-title">
         <div className="container">

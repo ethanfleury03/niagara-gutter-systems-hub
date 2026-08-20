@@ -171,6 +171,50 @@
 }
 
 .workstream-page { background: var(--color-paper); }
+.problem-section {
+  padding-block: var(--space-3xl);
+  border-block: var(--rule-hair) solid var(--color-rule);
+  background: var(--color-paper-2);
+}
+.problem-grid {
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.55fr) minmax(0, 1.45fr);
+  gap: var(--space-4xl);
+  align-items: start;
+}
+.problem-grid h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+.problem-copy > p {
+  max-width: 62ch;
+  margin: 0 0 var(--space-xl);
+  font-size: var(--text-lg);
+  line-height: 1.45;
+}
+.problem-copy ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-block-start: var(--rule-hair) solid var(--color-rule-strong);
+}
+.problem-copy li {
+  position: relative;
+  padding: var(--space-md) 0 var(--space-md) var(--space-lg);
+  border-block-end: var(--rule-hair) solid var(--color-rule);
+  color: var(--color-muted);
+}
+.problem-copy li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 1.45rem;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
 .subpage-hero {
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(20rem, 0.75fr);
@@ -463,6 +507,7 @@
 
 @media (max-width: 60rem) {
   .subpage-hero,
+  .problem-grid,
   .decision-grid,
   .implementation-grid { grid-template-columns: minmax(0, 1fr); }
   .subpage-hero { gap: var(--space-2xl); }
@@ -488,6 +533,9 @@
   .project-menu-state { grid-column: 2; }
   .project-menu-copy small { line-height: 1.4; }
   .subpage-hero { padding-block: var(--space-3xl) var(--space-4xl); }
+  .problem-section { padding-block: var(--space-2xl); }
+  .problem-grid { gap: var(--space-xl); }
+  .problem-copy > p { font-size: var(--text-md); }
   .subpage-hero h1 { font-size: clamp(2.5rem, 13vw, 3.75rem); }
   .back-link { margin-block-end: var(--space-xl); }
   .roadmap-image-scroll img { width: 52rem; max-width: none; }
