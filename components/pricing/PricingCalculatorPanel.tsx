@@ -91,7 +91,7 @@ function EstimateSummary({ quote, values }: { quote: QuoteInputs; values: Pricin
   const result = calculateQuote(quote, values);
   const status = !result.hasWork ? "Incomplete" : result.flags.length > 0 ? "Review" : "Ready";
   return (
-    <aside className="calculator-result quote-summary" aria-live="polite" aria-label="Synthetic estimate summary">
+    <aside id="quote-estimate-summary" className="calculator-result quote-summary" aria-live="polite" aria-label="Synthetic estimate summary" tabIndex={-1}>
       <div className="quote-summary-head">
         <div><span>Live estimate</span><strong>{quote.projectLabel || "Untitled project"}</strong></div>
         <b className={status === "Review" ? "quote-status quote-status--review" : status === "Incomplete" ? "quote-status quote-status--incomplete" : "quote-status"}>{status}</b>
@@ -117,6 +117,19 @@ function EstimateSummary({ quote, values }: { quote: QuoteInputs; values: Pricin
 export function PricingCalculatorPanel({ quote, values, onChange }: { quote: QuoteInputs; values: PricingValues; onChange: (change: Partial<QuoteInputs>) => void }) {
   const [activeStep, setActiveStep] = useState(0);
   const active = steps[activeStep];
+  const isLastStep = activeStep === steps.length - 1;
+
+  function handlePrimaryAction() {
+    if (!isLastStep) {
+      setActiveStep((step) => Math.min(steps.length - 1, step + 1));
+      return;
+    }
+
+    const summary = document.querySelector<HTMLElement>("#quote-estimate-summary");
+    summary?.scrollIntoView({ behavior: "smooth", block: "start" });
+    summary?.focus({ preventScroll: true });
+  }
+
   return (
     <div className="calculator-layout quote-calculator-layout">
       <form className="calculator-form quote-builder" aria-label="Synthetic quote builder">
@@ -130,7 +143,7 @@ export function PricingCalculatorPanel({ quote, values, onChange }: { quote: Quo
           {active.id === "conditions" && <ConditionsStep quote={quote} update={onChange} />}
           {active.id === "pricing" && <PricingStep quote={quote} values={values} update={onChange} />}
         </div>
-        <div className="quote-builder-actions"><button type="button" onClick={() => setActiveStep((step) => Math.max(0, step - 1))} disabled={activeStep === 0}>← Back</button><span>{activeStep + 1} / {steps.length}</span><button type="button" onClick={() => setActiveStep((step) => Math.min(steps.length - 1, step + 1))} disabled={activeStep === steps.length - 1}>Next →</button></div>
+        <div className="quote-builder-actions"><button type="button" onClick={() => setActiveStep((step) => Math.max(0, step - 1))} disabled={activeStep === 0}>← Back</button><span>{activeStep + 1} / {steps.length}</span><button type="button" onClick={handlePrimaryAction}>{isLastStep ? "Review estimate →" : "Next →"}</button></div>
       </form>
       <EstimateSummary quote={quote} values={values} />
     </div>
