@@ -42,13 +42,19 @@ export default function SiteNav() {
 
   return (
     <>
-      <nav className="nav-pill" aria-label="Primary navigation">
-        <Link className="nav-wordmark" href="/" onClick={() => setOpen(false)}>
-          NG Systems
+      <nav className="site-header" aria-label="Primary navigation">
+        <span className="header-state">
+          <span className="state-full">Private concept</span>
+          <span className="state-short">Concept</span>
+        </span>
+        <Link className="header-wordmark" href="/" onClick={() => setOpen(false)}>
+          <span className="wordmark-full">Niagara Gutter Systems Hub</span>
+          <span className="wordmark-short">NG Systems</span>
         </Link>
         <button
           className="project-menu-button"
           type="button"
+          aria-label="Projects"
           aria-expanded={open}
           aria-controls="project-menu"
           onClick={() => setOpen((current) => !current)}
@@ -58,9 +64,8 @@ export default function SiteNav() {
             <i />
             <i />
           </span>
-          <span>Projects</span>
+          <span className="project-button-label">Projects</span>
         </button>
-        <span className="nav-state">Concept</span>
       </nav>
 
       {open && (
