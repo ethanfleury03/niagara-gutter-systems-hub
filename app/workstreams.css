@@ -289,6 +289,12 @@
 .roadmap-visual figcaption strong { color: var(--color-ink); }
 
 .map-section { padding-block-end: var(--space-3xl); }
+.integration-visual-section {
+  padding-block: var(--space-4xl);
+  border-block-end: var(--rule-hair) solid var(--color-rule);
+}
+.integration-visual-section--tinted { background: var(--color-paper-2); }
+.integration-visual-section .page-next { margin-block-start: var(--space-2xl); }
 
 .inspection-section { padding-block: var(--space-3xl); background: var(--color-paper-2); }
 .ownership-section { padding-block: var(--space-4xl); background: var(--color-paper-2); }
@@ -536,6 +542,7 @@
   .problem-section { padding-block: var(--space-2xl); }
   .problem-grid { gap: var(--space-xl); }
   .problem-copy > p { font-size: var(--text-md); }
+  .integration-visual-section { padding-block: var(--space-3xl); }
   .subpage-hero h1 { font-size: clamp(2.5rem, 13vw, 3.75rem); }
   .back-link { margin-block-end: var(--space-xl); }
   .roadmap-image-scroll img { width: 52rem; max-width: none; }
