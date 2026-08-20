@@ -12,7 +12,7 @@ export default function PricingPage() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
   return (
-    <main className="site-shell workstream-page pricing-placeholder-page">
+    <main className="site-shell workstream-page">
       <SiteNav />
       <header className="subpage-hero container">
         <div>
@@ -60,21 +60,19 @@ export default function PricingPage() {
         </figure>
       </section>
 
-      <section className="pricing-preview container">
-        <div className="pricing-canvas" aria-label="Pricing calculator feature preview">
-          <div className="pricing-preview-head">
-            <span>Planned calculator surface</span>
-            <strong>No Niagara Gutter prices entered</strong>
+      <section className="possible-calculator-section" aria-labelledby="possible-calculator-title">
+        <div className="container">
+          <div className="possible-calculator-banner">
+            <div>
+              <p className="context-line context-line--light">Next build</p>
+              <h2 id="possible-calculator-title">Possible Calculator</h2>
+            </div>
+            <p>Interactive prototype coming next · Synthetic example pricing only</p>
           </div>
-          <div className="pricing-preview-grid">
-            <div><span>Job inputs</span><p>Measurements · products · access · removal · options</p></div>
-            <div><span>Rules</span><p>Base tables · modifiers · minimums · approvals</p></div>
-            <div><span>Result</span><p>Line items · selling price · margin · explanation</p></div>
+          <div className="page-next page-next--split">
+            <Link href="/inventory/">← Inventory approach</Link>
+            <Link href="/integration/">Integration pipeline →</Link>
           </div>
-        </div>
-        <div className="page-next page-next--split">
-          <Link href="/inventory/">← Inventory approach</Link>
-          <Link href="/integration/">Integration pipeline →</Link>
         </div>
       </section>
 
