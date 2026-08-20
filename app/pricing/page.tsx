@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteNav from "@/components/SiteNav";
 import ProblemSection from "@/components/ProblemSection";
+import { PricingCalculatorConcept } from "@/components/PricingCalculatorConcept";
 
 export const metadata: Metadata = {
   title: "Pricing Calculator Plan | Niagara Gutter Systems Hub",
@@ -67,8 +68,9 @@ export default function PricingPage() {
               <p className="context-line">Next build</p>
               <h2 id="possible-calculator-title">Possible Calculator</h2>
             </div>
-            <p>Interactive prototype coming next · Synthetic example pricing only</p>
+            <p>Interface design prototype · Calculation logic coming next · Synthetic values only</p>
           </div>
+          <PricingCalculatorConcept />
           <div className="page-next page-next--split">
             <Link href="/inventory/">← Inventory approach</Link>
             <Link href="/integration/">Integration pipeline →</Link>
