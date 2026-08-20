@@ -62,9 +62,9 @@ export default function PricingPage() {
 
       <section className="possible-calculator-section" aria-labelledby="possible-calculator-title">
         <div className="container">
-          <div className="possible-calculator-banner">
+          <div className="possible-calculator-heading">
             <div>
-              <p className="context-line context-line--light">Next build</p>
+              <p className="context-line">Next build</p>
               <h2 id="possible-calculator-title">Possible Calculator</h2>
             </div>
             <p>Interactive prototype coming next · Synthetic example pricing only</p>
